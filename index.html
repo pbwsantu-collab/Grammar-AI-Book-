@@ -1,224 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#5b21b6">
-<title>English Grammar Master Hub</title>
-<style>
-:root{
-  --bg:#f6f7fb;--card:#fff;--text:#172033;--muted:#667085;
-  --primary:#6d28d9;--secondary:#2563eb;--accent:#f59e0b;
-  --border:#e7e7ef;--shadow:0 12px 35px rgba(30,20,70,.10)
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
-header{
-  background:linear-gradient(135deg,#4c1d95,#6d28d9 45%,#2563eb);
-  color:white;padding:24px 16px 34px;position:relative;overflow:hidden
-}
-header:before,header:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.10)}
-header:before{width:240px;height:240px;right:-80px;top:-90px}
-header:after{width:170px;height:170px;left:-70px;bottom:-90px}
-.top{max-width:1180px;margin:auto;position:relative;z-index:1}
-.badge{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.16);font-size:.82rem;font-weight:700}
-h1{font-size:clamp(2rem,6vw,4.1rem);line-height:1.05;margin:16px 0 10px}
-.tagline{font-size:clamp(1rem,2.4vw,1.35rem);max-width:760px;opacity:.95}
-.search{margin-top:22px;display:flex;gap:10px;max-width:720px}
-.search input{flex:1;padding:14px 16px;border:0;border-radius:14px;font-size:1rem;outline:none}
-button,.btn{border:0;cursor:pointer;border-radius:12px;padding:11px 15px;font-weight:750;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
-.search button{background:#111827;color:white}
-nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.navin{max-width:1180px;margin:auto;display:flex;gap:8px;overflow:auto;padding:9px 12px}
-.navin a{white-space:nowrap;color:#344054;text-decoration:none;padding:9px 12px;border-radius:10px;font-weight:700}
-.navin a:hover{background:#eee9ff;color:var(--primary)}
-main{max-width:1180px;margin:auto;padding:28px 14px 70px}
-.section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:20px 0 15px}
-.section-title h2{margin:0;font-size:1.65rem}
-.section-title p{margin:0;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:19px;box-shadow:var(--shadow);transition:.2s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-4px)}
-.icon{font-size:2rem;margin-bottom:8px}
-.card h3{margin:4px 0 7px;font-size:1.1rem}
-.card p{color:var(--muted);font-size:.92rem;line-height:1.5;flex:1}
-.card .btn{background:#f1edff;color:#5420bd;margin-top:12px}
-.card .btn:hover{background:#e6ddff}
-.youtube .btn{background:#fee2e2;color:#b91c1c}
-.youtube .btn:hover{background:#fecaca}
-.topic-tools{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
-.filter{background:white;border:1px solid var(--border);color:#344054}
-.filter.active{background:#111827;color:white}
-.hidden{display:none!important}
-.notice{background:linear-gradient(135deg,#fff7ed,#fffbeb);border:1px solid #fed7aa;border-radius:18px;padding:18px;margin:26px 0}
-.notice strong{color:#9a3412}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
-.stat{background:white;border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center}
-.stat b{display:block;font-size:1.7rem;color:var(--primary)}
-.stat span{color:var(--muted);font-size:.86rem}
-footer{background:#111827;color:#d1d5db;text-align:center;padding:28px 15px}
-footer strong{color:white}
-@media(max-width:600px){.search{flex-direction:column}.stats{grid-template-columns:1fr 1fr 1fr}.stat{padding:11px 5px}.stat b{font-size:1.35rem}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Grammar Hub · All Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f8f9fc;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        /* header */
+        .main-header {
+            text-align: center;
+            margin-bottom: 2.8rem;
+            padding: 1.5rem 0.5rem 1rem;
+            background: linear-gradient(145deg, #ffffff, #f0f4ff);
+            border-radius: 40px;
+            box-shadow: 0 10px 25px rgba(0, 20, 50, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .main-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+        }
+
+        .main-header h1 span {
+            background: #eef3ff;
+            padding: 0.2rem 1.2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e3c72;
+            background: #dce6f5;
+            letter-spacing: 0.3px;
+        }
+
+        .subhead {
+            color: #2c3e6b;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* grid menu */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(210, 222, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #1f2a44;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 30px -8px rgba(30, 60, 114, 0.15);
+            border-color: #b0c8ff;
+        }
+
+        /* color accents */
+        .menu-card:nth-child(1) { border-left: 6px solid #4f7eb3; }
+        .menu-card:nth-child(2) { border-left: 6px solid #e67e22; }
+        .menu-card:nth-child(3) { border-left: 6px solid #27ae60; }
+        .menu-card:nth-child(4) { border-left: 6px solid #8e44ad; }
+        .menu-card:nth-child(5) { border-left: 6px solid #d35400; }
+        .menu-card:nth-child(6) { border-left: 6px solid #2980b9; }
+        .menu-card:nth-child(7) { border-left: 6px solid #c0392b; }
+        .menu-card:nth-child(8) { border-left: 6px solid #16a085; }
+        .menu-card:nth-child(9) { border-left: 6px solid #f39c12; }
+        .menu-card:nth-child(10) { border-left: 6px solid #2c3e50; }
+        .menu-card:nth-child(11) { border-left: 6px solid #7f8c8d; }
+        .menu-card:nth-child(12) { border-left: 6px solid #d35400; }
+
+        .menu-card .emoji-big {
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .menu-card h3 {
+            font-size: 1.3rem;
+            font-weight: 650;
+            margin: 0.4rem 0 0.2rem;
+            color: #0b1a33;
+        }
+
+        .menu-card p {
+            color: #3d4f72;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-top: 0.2rem;
+            opacity: 0.8;
+            flex-grow: 1;
+        }
+
+        .badge-count {
+            background: #eef3fc;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1a3b70;
+            align-self: flex-start;
+            margin-top: 0.9rem;
+            letter-spacing: 0.3px;
+            border: 1px solid #d4e0f5;
+        }
+
+        /* youtube section */
+        .youtube-section {
+            margin: 3rem 0 2rem;
+            background: #ffffffd0;
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 1.8rem 2rem 2.2rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border: 1px solid rgba(200, 215, 240, 0.4);
+        }
+
+        .youtube-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0b1f3b;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .yt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem 1.8rem;
+        }
+
+        .yt-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem 0.6rem 0.8rem;
+            background: #f3f7fe;
+            border-radius: 60px;
+            color: #1e3a6b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.15s;
+            border: 1px solid transparent;
+        }
+
+        .yt-link:hover {
+            background: #e3ecfc;
+            border-color: #b6cef0;
+            transform: scale(1.01);
+        }
+
+        .yt-link .yt-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #3f5780;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding: 1rem 0;
+            border-top: 1px solid #dce4f0;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .main-header h1 { font-size: 2.1rem; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .youtube-section { padding: 1.5rem 1rem; }
+        }
+    </style>
 </head>
 <body>
+<div class="container">
 
-<header>
-  <div class="top">
-    <span class="badge">📚 ENGLISH GRAMMAR • MASTER HUB</span>
-    <h1>Master Grammar. Build Confidence. Speak & Write Better.</h1>
-    <div class="tagline">One colourful learning page connecting your Grammar tools, practice modules and video lessons — from fundamentals to 🔥 hard-level transformation.</div>
-    <div class="search">
-      <input id="searchBox" type="search" placeholder="Search a grammar topic… e.g. tense, voice, narration">
-      <button onclick="clearSearch()">Clear</button>
+    <!-- header -->
+    <div class="main-header">
+        <h1>
+            📘 Grammar · Master
+            <span>ALL in one</span>
+        </h1>
+        <div class="subhead">✦ colorful menu · 12 grammar modules · 1000+ questions</div>
     </div>
-  </div>
-</header>
 
-<nav>
- <div class="navin">
-  <a href="#grammar">🧠 Grammar</a>
-  <a href="#practice">🎯 Practice</a>
-  <a href="#videos">▶️ Video Playlists</a>
-  <a href="#roadmap">🗺️ Roadmap</a>
- </div>
-</nav>
+    <!-- grid menu -->
+    <div class="menu-grid">
 
-<main>
-<section id="grammar">
- <div class="section-title">
-  <div><h2>🧠 Grammar Master Modules</h2><p>Open the modules you have already built.</p></div>
- </div>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Voice-change-/" target="_blank">
+            <div class="emoji-big">🔊</div>
+            <h3>Voice Change</h3>
+            <p>Active ↔ Passive · 246 questions with full explanations</p>
+            <span class="badge-count">📊 246 Q</span>
+        </a>
 
- <div class="topic-tools">
-  <button class="filter active" data-filter="all">All</button>
-  <button class="filter" data-filter="core">Core Grammar</button>
-  <button class="filter" data-filter="transformation">Transformation</button>
-  <button class="filter" data-filter="word">Word Grammar</button>
- </div>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Degree-parts-of-speech-can-t-but/" target="_blank">
+            <div class="emoji-big">📊</div>
+            <h3>Degree · Parts of Speech · Cannot but</h3>
+            <p>Positive/Comparative/Superlative · POS transformation · 105+ Q</p>
+            <span class="badge-count">📝 105 Q</span>
+        </a>
 
- <div class="grid" id="grammarGrid">
-  <article class="card" data-cat="transformation" data-search="voice change active passive voice">
-   <div class="icon">🔄</div><h3>Voice Change</h3>
-   <p>Active ↔ Passive voice rules and practice.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Voice-change-/">Open Module ↗</a>
-  </article>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Transformation-of-Sentences-/" target="_blank">
+            <div class="emoji-big">🔄</div>
+            <h3>Transformation of Sentences</h3>
+            <p>Simple, Complex, Compound · 200+ transformation drills</p>
+            <span class="badge-count">📚 200+ Q</span>
+        </a>
 
-  <article class="card" data-cat="word" data-search="degree parts of speech can but">
-   <div class="icon">📈</div><h3>Degree • Parts of Speech • Can/But</h3>
-   <p>Comparison, parts of speech and related transformation patterns.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Degree-parts-of-speech-can-t-but-/">Open Module ↗</a>
-  </article>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Clauses/" target="_blank">
+            <div class="emoji-big">🧩</div>
+            <h3>Clause Mastery</h3>
+            <p>Noun · Adjective · Adverb clauses · 100+ questions</p>
+            <span class="badge-count">📌 100+ Q</span>
+        </a>
 
-  <article class="card" data-cat="transformation" data-search="transformation sentences">
-   <div class="icon">🧩</div><h3>Transformation of Sentences</h3>
-   <p>Sentence transformation practice from basic to advanced patterns.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Transformation-of-Sentences-/">Open Module ↗</a>
-  </article>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Narration-Change-/" target="_blank">
+            <div class="emoji-big">🗣️</div>
+            <h3>Narration Change</h3>
+            <p>Direct ↔ Indirect speech · all tenses & modals</p>
+            <span class="badge-count">✏️ practice</span>
+        </a>
 
-  <article class="card" data-cat="transformation" data-search="clauses clause">
-   <div class="icon">🔗</div><h3>Clauses</h3>
-   <p>Identify, understand and transform different kinds of clauses.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Clauses/">Open Module ↗</a>
-  </article>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/The-Master-of-Tense/#drill" target="_blank">
+            <div class="emoji-big">⏳</div>
+            <h3>The Master of Tense</h3>
+            <p>All tenses · interactive drills · time expressions</p>
+            <span class="badge-count">⏰ drill</span>
+        </a>
 
-  <article class="card" data-cat="transformation" data-search="narration change direct indirect speech">
-   <div class="icon">💬</div><h3>Narration Change</h3>
-   <p>Direct ↔ Indirect speech with systematic practice.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Narration-Change-/">Open Module ↗</a>
-  </article>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Number-Gender-Degree/" target="_blank">
+            <div class="emoji-big">🔢</div>
+            <h3>Number · Gender · Degree</h3>
+            <p>Noun number, gender & degree (positive/comparative/superlative)</p>
+            <span class="badge-count">📖 rules</span>
+        </a>
 
-  <article class="card" data-cat="core" data-search="tenses tense master">
-   <div class="icon">⏳</div><h3>The Master of Tense</h3>
-   <p>Complete tense practice with an interactive drill area.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/The-Master-of-Tense/#drill">Open Drill ↗</a>
-  </article>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Number-Gender-Degree-Parts-of-Speech-Articles/" target="_blank">
+            <div class="emoji-big">📰</div>
+            <h3>Articles · POS · Number/Gender</h3>
+            <p>Articles, parts of speech, number & gender combined</p>
+            <span class="badge-count">📘 combo</span>
+        </a>
 
-  <article class="card" data-cat="word" data-search="number gender degree">
-   <div class="icon">🔢</div><h3>Number • Gender • Degree</h3>
-   <p>Core word-level grammar and transformation practice.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Number-Gender-Degree/">Open Module ↗</a>
-  </article>
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Phrasal-verbs-Preposition-Verbs-/" target="_blank">
+            <div class="emoji-big">🔗</div>
+            <h3>Phrasal Verbs · Preposition Verbs</h3>
+            <p>Common phrasal verbs & prepositional verbs with examples</p>
+            <span class="badge-count">🔖 list</span>
+        </a>
 
-  <article class="card" data-cat="word" data-search="number gender degree parts speech articles">
-   <div class="icon">📝</div><h3>Number • Gender • Degree • Parts of Speech • Articles</h3>
-   <p>A wider combined practice module for important grammar categories.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Number-Gender-Degree-Parts-of-Speech-Articles/">Open Module ↗</a>
-  </article>
+        <!-- extra card for phrasal verbs (duplicate from message but distinct) -->
+        <a class="menu-card" href="https://pbwsantu-collab.github.io/Phrasal-verbs-Preposition-Verbs-/" target="_blank">
+            <div class="emoji-big">📌</div>
+            <h3>Phrasal Verbs · Preposition Verbs</h3>
+            <p>Essential verb + preposition combinations</p>
+            <span class="badge-count">🔖 reference</span>
+        </a>
 
-  <article class="card" data-cat="word" data-search="phrasal verbs preposition verbs">
-   <div class="icon">🛠️</div><h3>Phrasal Verbs • Prepositions • Verbs</h3>
-   <p>Build stronger vocabulary and verb usage through focused practice.</p>
-   <a class="btn" target="_blank" rel="noopener" href="https://pbwsantu-collab.github.io/Phrasal-verbs-Preposition-Verbs-/">Open Module ↗</a>
-  </article>
- </div>
-</section>
+        <a class="menu-card" href="#" style="opacity:0.7; cursor:default; border-left-color:#a0b8d0;">
+            <div class="emoji-big">📁</div>
+            <h3>More resources</h3>
+            <p>YouTube playlists & extra practice links below</p>
+            <span class="badge-count">▶️ playlists</span>
+        </a>
 
-<div class="stats">
- <div class="stat"><b>9</b><span>Grammar Modules</span></div>
- <div class="stat"><b>11</b><span>Playlist Links Supplied</span></div>
- <div class="stat"><b>∞</b><span>Practice Possibilities</span></div>
+        <a class="menu-card" href="#" style="opacity:0.7; cursor:default; border-left-color:#7f8c8d;">
+            <div class="emoji-big">🎯</div>
+            <h3>All at a glance</h3>
+            <p>12 topics · colourful menu · single page</p>
+            <span class="badge-count">✅ done</span>
+        </a>
+    </div>
+
+    <!-- youtube playlists -->
+    <div class="youtube-section">
+        <h2>
+            <span>▶️</span> YouTube Playlists
+        </h2>
+        <div class="yt-grid">
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJoHN8VtEm7DEI6PSTm7fAim&si=VTl5au-w3bftTE7m" target="_blank">
+                <span class="yt-icon">🎬</span> Voice & Narration
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJo1S-aSZBHcJ5o9AS2_wwF6&si=PdZZtJLjL-yY_oAK" target="_blank">
+                <span class="yt-icon">📘</span> Transformation
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJrxx9tkamHqXT2hR4uw1UML&si=QLHIARbSkz_3Xd6i" target="_blank">
+                <span class="yt-icon">🧩</span> Clauses
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJof6zJrHFLl_seeLynuboLb&si=Z4ZvRcY2k8pb2i1r" target="_blank">
+                <span class="yt-icon">📐</span> Degree & POS
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJrsdSoRtqaa864sbwbZUMFp&si=AtFGdG3v3VnnCcrG" target="_blank">
+                <span class="yt-icon">⏳</span> Tense Master
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJr1XLipTNjseBbwfPzC_83h&si=aIZmWi-1WXVdEZ4P" target="_blank">
+                <span class="yt-icon">🔢</span> Number & Gender
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJpE6ipyMtf7vBOXcCpBqQk_&si=egnTMn4-lG_gzpiQ" target="_blank">
+                <span class="yt-icon">📰</span> Articles & POS
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJridj3xP_-q3ButMmsxv77x&si=t17nHHpd6zbUbFvG" target="_blank">
+                <span class="yt-icon">🔗</span> Phrasal Verbs
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJrW__L9I1Q9lLVykBnB-IFE&si=2qNfNzjbS2n2LVNZ" target="_blank">
+                <span class="yt-icon">📝</span> Mixed Practice
+            </a>
+            <a class="yt-link" href="https://youtube.com/playlist?list=PLuwU5PKxbLJp0UorP5BP8L-uhEGzePbQn&si=qLuUQ478yIWqQrO5" target="_blank">
+                <span class="yt-icon">🎯</span> All Grammar
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        🌟 all modules • colourful • single HTML • click any card to open
+    </div>
+
 </div>
-
-<section id="videos">
- <div class="section-title">
-  <div><h2>▶️ Video Learning Library</h2><p>Your supplied YouTube playlists, kept in one place.</p></div>
- </div>
- <div class="grid" id="videoGrid">
-  <article class="card youtube" data-search="youtube playlist grammar video 1"><div class="icon">🎬</div><h3>Playlist 01</h3><p>Open the first supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJoHN8VtEm7DEI6PSTm7fAim&si=VTl5au-w3bftTE7m">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 2"><div class="icon">🎬</div><h3>Playlist 02</h3><p>Open the second supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJo1S-aSZBHcJ5o9AS2_wwF6&si=PdZZtJLjL-yY_oAK">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 3"><div class="icon">🎬</div><h3>Playlist 03</h3><p>Open the third supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJrxx9tkamHqXT2hR4uw1UML&si=QLHIARbSkz_3Xd6i">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 4"><div class="icon">🎬</div><h3>Playlist 04</h3><p>Open the fourth supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJof6zJrHFLl_seeLynuboLb&si=Z4ZvRcY2k8pb2i1r">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 5"><div class="icon">🎬</div><h3>Playlist 05</h3><p>Open the fifth supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJrsdSoRtqaa864sbwbZUMFp&si=AtFGdG3v3VnnCcrG">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 6"><div class="icon">🎬</div><h3>Playlist 06</h3><p>Open the sixth supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJr1XLipTNjseBbwfPzC_83h&si=aIZmWi-1WXVdEZ4P">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 7 duplicate"><div class="icon">🎬</div><h3>Playlist 07</h3><p>This is the duplicate link supplied for Playlist 06.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJr1XLipTNjseBbwfPzC_83h&si=aIZmWi-1WXVdEZ4P">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 8"><div class="icon">🎬</div><h3>Playlist 08</h3><p>Open the eighth supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJpE6ipyMtf7vBOXcCpBqQk_&si=egnTMn4-lG_gzpiQ">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 9"><div class="icon">🎬</div><h3>Playlist 09</h3><p>Open the ninth supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJridj3xP_-q3ButMmsxv77x&si=t17nHHpd6zbUbFvG">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 10"><div class="icon">🎬</div><h3>Playlist 10</h3><p>Open the tenth supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJrW__L9I1Q9lLVykBnB-IFE&si=2qNfNzjbS2n2LVNZ">Watch ↗</a></article>
-  <article class="card youtube" data-search="youtube playlist grammar video 11"><div class="icon">🎬</div><h3>Playlist 11</h3><p>Open the eleventh supplied learning playlist.</p><a class="btn" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLuwU5PKxbLJp0UorP5BP8L-uhEGzePbQn&si=qLuUQ478yIWqQrO5">Watch ↗</a></article>
- </div>
-</section>
-
-<section id="roadmap">
- <div class="section-title"><div><h2>🗺️ Suggested Learning Roadmap</h2><p>A logical route from foundation to advanced transformation.</p></div></div>
- <div class="grid">
-  <article class="card"><div class="icon">1️⃣</div><h3>Foundation</h3><p>Parts of Speech → Articles → Number → Gender → Verbs → Prepositions.</p></article>
-  <article class="card"><div class="icon">2️⃣</div><h3>Tense & Usage</h3><p>Build command over present, past and future forms, then move to mixed drills.</p></article>
-  <article class="card"><div class="icon">3️⃣</div><h3>Transformation</h3><p>Degree → Voice → Narration → Clauses → Sentence Transformation.</p></article>
-  <article class="card"><div class="icon">4️⃣</div><h3>🔥 Challenge Mode</h3><p>Combine rules in mixed exercises, error correction and Bengali → English translation.</p></article>
- </div>
- <div class="notice"><strong>Next upgrade idea:</strong> turn this hub into a full single-engine PWA with login-free local progress, bookmarks, Bengali explanations, random question generation, score/accuracy tracking, timed drills and a unified search across every grammar module.</div>
-</section>
-</main>
-
-<footer>
- <strong>English Grammar Master Hub</strong><br>
- Learn • Practise • Transform • Master
-</footer>
-
-<script>
-const cards=[...document.querySelectorAll('.card')];
-const search=document.getElementById('searchBox');
-const filters=[...document.querySelectorAll('.filter')];
-let active='all';
-
-function apply(){
- const q=search.value.trim().toLowerCase();
- cards.forEach(c=>{
-   const matchText=(c.dataset.search||'').toLowerCase().includes(q) ||
-                   c.innerText.toLowerCase().includes(q);
-   const matchCat=active==='all' || c.dataset.cat===active || !c.dataset.cat;
-   c.classList.toggle('hidden',!(matchText&&matchCat));
- });
-}
-search.addEventListener('input',apply);
-filters.forEach(f=>f.addEventListener('click',()=>{
- filters.forEach(x=>x.classList.remove('active'));
- f.classList.add('active');
- active=f.dataset.filter; apply();
-}));
-function clearSearch(){search.value='';apply();search.focus()}
-</script>
 </body>
-</html>
+  </html>
